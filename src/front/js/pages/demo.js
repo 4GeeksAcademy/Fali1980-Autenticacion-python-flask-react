@@ -25,10 +25,13 @@ export const Demo = () => {
 									Check store/flux.js scroll to the actions to see the code
 								</p>
 							) : null}
+							<img src="https://media.licdn.com/dms/image/D4D22AQEY8VsH07eC2A/feedshare-shrink_800/0/1704981912200?e=2147483647&v=beta&t=HvtA_o68bFOxEDl_i9UBJgYWJsTLDVpbOIjB7xkWLKk"/>
 							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
 								Change Color
 							</button>
+							
 						</li>
+						
 					);
 				})}
 			</ul>
