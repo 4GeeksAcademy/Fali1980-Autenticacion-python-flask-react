@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom"; // Importar Link
 
-const Form = () => {
+const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { store, actions } = useContext(Context);
@@ -11,7 +10,7 @@ const Form = () => {
         e.preventDefault();
         console.log('send data');
         console.log(email, password);
-        actions.login(email, password);
+        actions.signup(email, password);
     }
 
     return (
@@ -41,14 +40,10 @@ const Form = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">Signup</button>
             </form>
-            <p>or</p>
-            <Link to="/signup">
-                <button className="btn btn-primary">Signup</button>
-            </Link>
         </div>
     );
 }
 
-export default Form;
+export default Signup;

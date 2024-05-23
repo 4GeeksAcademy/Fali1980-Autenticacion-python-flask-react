@@ -54,6 +54,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 						
 					});
 			},
+			signup: (email, password) => {
+                console.log("signup desde flux")
+                const requestOptions = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(
+                        {
+                            "email": email,
+                            "password": password
+                        }
+                    )
+                };
+                fetch(process.env.BACKEND_URL + '/api/signup', requestOptions)
+                    .then(response => {
+                        console.log(response.status)
+                        if (response.status === 200) {
+                            setStore({ auth: true });
+                        }
+                        return response.json()
+                    })
+                    .then(data => {
+                        console.log(data)
+                        if (data.access_token) {
+                            localStorage.setItem("token", data.access_token);
+                        }
+                    });
+            },
 
 			getMessage: async () => {
 				try{
